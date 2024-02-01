@@ -1,0 +1,228 @@
+MDFloatLayout:
+    orientation: 'vertical'
+
+    MDTopAppBar:
+        title: "Ketamine & Dexdomitor Calculator"
+
+    MDTabs:
+        id: tabs
+        egg_question_text1: egg_question_text1
+        egg_answer_text1: egg_answer_text1
+        egg_question_text2: egg_question_text2
+        egg_answer_text2: egg_answer_text2
+        weight_input: weight_input
+        weight_label: weight_label
+        ket_label: ket_label
+        dom_label: dom_label
+        inj_err_msg: inj_err_msg
+        ratio_err_msg: ratio_err_msg
+
+
+        Tabs:
+            id: tab_1
+            title: '3:2 Ratio Solution'
+
+            MDLabel:
+                text: "Ketamine 3:2 Dexdomitor Ratio Calculator"
+                pos_hint: {'center_x': 0.5,'center_y': 0.92}
+                font_size: 70
+                size_hint: 0.8, 0.4
+                theme_text_color: "Custom"
+                text_color: 0, 0.6, 0
+                halign: "center"
+
+            MDLabel:
+                text: "SciApp by: Esteban C. Loetz"
+                pos_hint: {'center_x': 0.5,'center_y': 0.85}
+                font_size: 40
+                size_hint: 0.50, 0.20
+                theme_text_color: "Custom"
+                text_color: 0, 0.6, 0, 0.7
+                halign: "center"
+
+            Button:
+                background_normal: 'syringe_ipb.png'
+                background_down: 'syringe_ipw.png'
+                border: 0,0,0,0
+                size_hint: (0.12,0.07)
+                halign: "center"
+                pos_hint: {"center_x": 0.5, "center_y":0.75}
+                on_press: app.egg_button_on_release1()
+
+            MDLabel:
+                id: egg_question_text1
+                text: ''
+                font_size: 35
+                halign: "center"
+                pos_hint: {"center_x": 0.23, "center_y":0.75}
+
+            MDLabel:
+                id: egg_answer_text1
+                text: ''
+                font_size: 35
+                halign: "center"
+                pos_hint: {"center_x": 0.77, "center_y":0.75}
+
+            MDLabel:
+                text: "Solution Ratio\n""Ket:Dom = 3:2"
+                font_size: 60
+                size_hint: 0.8, 0.2
+                halign: "center"
+                pos_hint: {'center_x': 0.5,'center_y': 0.65}
+                theme_text_color: "Custom"
+                text_color: 0, 0.6, 0
+
+            TextInput:
+                id: end_vol_input
+                hint_text: "Enter final volume required (Milligrams)"
+                pos_hint: {'center_x': 0.5,'center_y': 0.55}
+                font_size: 65
+                size_hint: 0.9, 0.05
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 0.23, 0.67, 0.93
+
+            MDLabel:
+                id: ket_label
+                text: "Ketamine Vol = (0.6)*(Final Vol)mL"
+                pos_hint: {'center_x': 0.5,'center_y': 0.47}
+                font_size: 55
+                size_hint: 0.8, 0.2
+                halign: "center"
+                
+            MDLabel:
+                id: dom_label
+                text: "Dexdomitor Vol = (0.4)*(Final Vol)mL"
+                pos_hint: {'center_x': 0.5,'center_y': 0.41}
+                font_size: 55
+                size_hint: 0.8, 0.2
+                halign: "center"
+                
+            MDLabel:
+                id: ratio_err_msg
+                text: ""
+                pos_hint: {'center_x': 0.5,'center_y': 0.4}
+                font_size: 50
+                size_hint: 0.7, 0.1
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: .68, 0.28, 1
+
+            MDRectangleFlatButton:
+                text: "Calculate Ket:Dom Volumes"
+                pos_hint: {'center_x': 0.5,'center_y': 0.27}
+                font_size: 60
+                size_hint: 0.8, 0.15
+                theme_text_color: "Custom"
+                text_color: 0, 0.6, 0
+                halign: "center"
+                on_press: app.generate_KETDOM_vols()
+
+            MDRectangleFlatButton:
+                text: "Reset"
+                pos_hint: {'center_x': 0.5,'center_y': 0.13}
+                font_size: 40
+                size_hint: 0.2, 0.04
+                halign: "center"
+                on_press: app.ratio_reset_func()
+
+        Tabs:
+            id: tab_2
+            title: 'Injection Vol by Weight'
+
+            MDLabel:
+                text: "Ketamine & Dexdomitor\n" "IP Vol Calculator"
+                pos_hint: {'center_x': 0.5,'center_y': 0.92}
+                font_size: 70
+                size_hint: 0.8, 0.4
+                theme_text_color: "Custom"
+                text_color: 0.23, 0.67, 0.93
+                halign: "center"
+
+            MDLabel:
+                text: "SciApp by: Esteban C. Loetz"
+                pos_hint: {'center_x': 0.5,'center_y': 0.85}
+                font_size: 40
+                size_hint: 0.50, 0.20
+                theme_text_color: "Custom"
+                text_color: 0, 0.22, 0.54, 0.9
+                halign: "center"
+
+            Button:
+                background_normal: 'syringe_ipw.png'
+                background_down: 'syringe_ipb.png'
+                border: 0,0,0,0
+                size_hint: (0.12,0.07)
+                halign: "center"
+                pos_hint: {"center_x": 0.5, "center_y":0.75}
+                on_press: app.egg_button_on_release2()
+
+            MDLabel:
+                id: egg_question_text2
+                text: ''
+                font_size: 35
+                halign: "center"
+                pos_hint: {"center_x": 0.23, "center_y":0.75}
+
+            MDLabel:
+                id: egg_answer_text2
+                text: ''
+                font_size: 35
+                halign: "center"
+                pos_hint: {"center_x": 0.77, "center_y":0.75}
+
+            MDLabel:
+                text: "Solution Ratio\n""Ket:Dom = 3:2"
+                font_size: 60
+                size_hint: 0.7, 0.1
+                halign: "center"
+                pos_hint: {'center_x': 0.5,'center_y': 0.65}
+                theme_text_color: "Custom"
+                text_color: 0.23, 0.67, 0.93
+
+            TextInput:
+                id: weight_input
+                hint_text: "Enter Animal Weight (Grams)"
+                pos_hint: {'center_x': 0.5,'center_y': 0.55}
+                font_size: 65
+                size_hint: 0.9, 0.05
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 0.23, 0.67, 0.93
+
+            MDLabel:
+                id: weight_label
+                text: "Inj. Vol = [(weight/100)*0.125]mL"
+                pos_hint: {'center_x': 0.5,'center_y': 0.44}
+                font_size: 50
+                size_hint: 0.6, 0.2
+                halign: "center"
+
+            MDLabel:
+                id: inj_err_msg
+                text: ""
+                pos_hint: {'center_x': 0.5,'center_y': 0.4}
+                font_size: 50
+                size_hint: 0.7, 0.09
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: .68, 0.28, 1
+
+            MDRectangleFlatButton:
+                text: "Calculate Injection Volume"
+                pos_hint: {'center_x': 0.5,'center_y': 0.27}
+                font_size: 60
+                size_hint: 0.8, 0.15
+                theme_text_color: "Custom"
+                text_color: 0.23, 0.67, 0.93
+                halign: "center"
+                on_press: app.generate_KETDOM_dose()
+
+            MDRectangleFlatButton:
+                text: "Reset"
+                pos_hint: {'center_x': 0.5,'center_y': 0.13}
+                font_size: 40
+                size_hint: 0.2, 0.04
+                color: 0.8, 0.8, 1
+                halign: "center"
+                on_press: app.inj_vol_reset_func()
